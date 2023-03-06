@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Webpage</title>
+    </head>
+    <body>
+        <div class="nav-container">
+            <header>
+                <a href="index.html" class="logo">Pierpaolo Capra</a>
+                <nav>
+                 <ul class="nav-links">
+                        <li><a class="links" href="works.html">Works</a></li>
+                        <li><a class="links" href="skills.html">Skills</a></li>
+                        <li><a class="links" href="contacts.html">Contacts</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="social-header">
+                <ul class="social">
+                    <li><a href="https://github.com/Pierpaolo-C" target="_blank"><img src="images/github.svg" alt="github"></a></li>
+                    <li><a href="https://www.linkedin.com/in/pierpaolo-capra-7252bba6/" target="_blank"><img src="images/linkedin.svg" alt="linkedin"></a></li>
+                    <li><a href="https://www.instagram.com/pierpi39/" target="_blank"><img src="images/instagram.svg" alt="instagram"></a></li>
+                </ul>
+            </div>
+        </div>
+        <section class="contacts">
+            <div class="contacts-container">
+                <div class="contacts-left">
+                    <div class="inner transition2">
+                        <h3>Let's get in touch!</h3>
+                        <p class="spacer"></p>
+                        <!-- Bootstrap form -->
+                        <form onsubmit="sendEmail(); reset(); return false;">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="3"></textarea>
+                            </div>
+                            <button type="submit" id="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+            // Function to send email from contact form imported from smtpjs.com, I didn't insert the password for safety reasons
+            function sendEmail(){
+                let name = document.getElementById("name").value;
+                let email = document.getElementById("email").value;
+                let message = document.getElementById("message").value;
+                Email.send({
+                    Host : "smtp.gmail.com",
+                    Username : "pierpi39@gmail.com",
+                    Password : "###",
+                    To : 'pierpi39@gmail.com',
+                    From : email,
+                    Subject : "Contact form enquiry",
+                    Body : "Name: " + name
+                    + "<br> Email: " + email
+                    + "<br> Message: " + message
+                    }).then(
+                        message => alert("Hello " + name + ", thanks for reaching out. I will get back to you as soon as possible.")
+                    )
+                };
+        </script>
+         <div class="nav-container">
+            <header>
+                <a href="index.html" class="logo">Pierpaolo Capra</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a class="links" href="works.html">Works</a></li>
+                        <li><a class="links" href="skills.html">Skills</a></li>
+                        <li><a class="links" href="contacts.html">Contacts</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="social-header">
+                <ul class="social">
+                    <li><a href="https://github.com/Pierpaolo-C" target="_blank"><img src="images/github.svg" alt="github"></a></li>
+                    <li><a href="https://www.linkedin.com/in/pierpaolo-capra-7252bba6/" target="_blank"><img src="images/linkedin.svg" alt="linkedin"></a></li>
+                    <li><a href="https://www.instagram.com/pierpi39/" target="_blank"><img src="images/instagram.svg" alt="instagram"></a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
